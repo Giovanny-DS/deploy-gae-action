@@ -11,7 +11,10 @@ async function run() {
     const appYamlPath = core.getInput('gae_config_path')
     const noCache = core.getInput('no_cache')
     const dispatchYaml = core.getInput('dispatch_yaml')
-
+    const source = core.getInput('source')
+    if (source) {
+    execSync(`source`, {stdio: 'inherit'})
+    }
     core.startGroup('Processing service account');
     console.log('Copy service account');
     const b64File = core.getInput('service_account')
