@@ -22,6 +22,10 @@ inputs:
     description: 'dispatch.yaml path (optional)'
     required: false
     default: ''
+  source:
+    description: 'a folder that contains the source code'
+    required: false
+    default: '.'
 runs:
   using: 'node12'
   main: 'index.js'
