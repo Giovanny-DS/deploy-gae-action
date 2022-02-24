@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/etereo-io/deploy-gae-action.git"
+    "url": "git+https://github.com/Giovanny-DS/deploy-gae-action"
   },
   "keywords": [],
   "author": "",
