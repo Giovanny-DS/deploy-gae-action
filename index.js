@@ -12,9 +12,6 @@ async function run() {
     const noCache = core.getInput('no_cache')
     const dispatchYaml = core.getInput('dispatch_yaml')
     const source = core.getInput('source')
-    if (source) {
-    execSync(`cd ${source}`, {stdio: 'inherit'})
-    }
     core.startGroup('Processing service account');
     console.log('Copy service account');
     const b64File = core.getInput('service_account')
@@ -38,7 +35,7 @@ async function run() {
 
       core.startGroup('Deploy project');
      
-      execSync(`gcloud app deploy --appyaml=${appYamlPath} ${!!dispatchYaml ? `${dispatchYaml}` : ''} -q --promote --stop-previous-version ${noCache ? ' --no-cache': ''}`, {stdio: 'inherit'});
+      execSync(`${source ? 'cd ' + source + ' && ': ''}gcloud app deploy --appyaml=${appYamlPath} ${!!dispatchYaml ? `${dispatchYaml}` : ''} -q --promote --stop-previous-version ${noCache ? ' --no-cache': ''}`, {stdio: 'inherit'});
       core.endGroup();
     }
 
