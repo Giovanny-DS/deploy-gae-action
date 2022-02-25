@@ -13,7 +13,7 @@ async function run() {
     const dispatchYaml = core.getInput('dispatch_yaml')
     const source = core.getInput('source')
     if (source) {
-    execSync(`source`, {stdio: 'inherit'})
+    execSync(`cd ${source}`, {stdio: 'inherit'})
     }
     core.startGroup('Processing service account');
     console.log('Copy service account');
