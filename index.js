@@ -18,7 +18,6 @@ async function run() {
     const fileContents = Buffer.from(b64File, 'base64').toString()
     fs.writeFileSync(serviceAccountFile, fileContents);
 
-    console.log('projectName: ', projectName);
     console.log('Activate service account');
     execSync(`gcloud auth activate-service-account --key-file ${serviceAccountFile}`, { stdio: 'inherit' });
     core.endGroup();
